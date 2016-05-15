@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Cerkes_Haber.View.MainPage" Title="Cerkes Haber">
+
+  <Page.Resources>
+
+  </Page.Resources>
+
+
+  <Grid x:Name="MainPanel" BackgroundColor="#EFC94C" VerticalOptions="Fill" HorizontalOptions="Fill">
+    <Grid.RowDefinitions>
+      <RowDefinition Height="3*"/>
+      <RowDefinition Height="Auto"/>
+    </Grid.RowDefinitions>
+
+    <Grid x:Name="HomePanel" Grid.Row="0" VerticalOptions="Fill" HorizontalOptions="Fill">
+      <ListView  x:Name="EventsList" Grid.Row="0" VerticalOptions="Fill" HorizontalOptions="Fill"
+                 ItemsSource="{Binding EventList}" BackgroundColor="Gray">
+        <ListView.ItemTemplate>
+          <DataTemplate>
+            <ViewCell>
+              <Grid Margin="5">
+                <Grid.ColumnDefinitions>
+                  <ColumnDefinition Width="30"/>
+                  <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <Grid Grid.Column="0" Margin="2">
+                  <Image Source="{Binding EventTypeFlag}" WidthRequest="100" HeightRequest="100"/>
+                </Grid>
+
+                <Grid Grid.Column="1" Margin="2" WidthRequest="300">
+                  <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                  </Grid.RowDefinitions>
+
+                  <Grid Grid.Row="0" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                    <Grid.RowDefinitions>
+                      <RowDefinition Height="Auto"/>
+                      <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                      <ColumnDefinition Width="Auto"/>
+                      <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Text="{Binding Title}" Grid.Row="0" Grid.Column="0" Margin="2" FontFamily="Segoe UI" FontSize="20" TextColor="#00A388"/>
+                    <Label Text="{Binding Name}" Grid.Row="1" Margin="2" Grid.Column="0"/>
+                    <Image Grid.Column="1" HorizontalOptions="End" HeightRequest="40" WidthRequest="40">
+                      <Image.Source>
+                        <OnPlatform x:TypeArguments="ImageSource">
+                          <OnPlatform.iOS>
+                            <FileImageSource File="join.png"/>
+                          </OnPlatform.iOS>
+                          <OnPlatform.Android>
+                            <FileImageSource File="join.png"/>
+                          </OnPlatform.Android>
+                          <OnPlatform.WinPhone>
+                            <FileImageSource File="Assets/images/join.png"/>
+                          </OnPlatform.WinPhone>
+                        </OnPlatform>
+                      </Image.Source>
+                    </Image>
+                  </Grid>
+
+                  <Label Text="{Binding Place}" Grid.Row="1" Margin="2"/>
+
+                  <Grid Grid.Row="2" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                    <Grid.ColumnDefinitions>
+                      <ColumnDefinition Width="*"/>
+                      <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Text="{Binding Date}" Grid.Column="0" Margin="2" TextColor="#FFFF9D" HorizontalOptions="Start"/>
+                    <Label Text="{Binding CreatedDate}" Grid.Column="1" Margin="2" TextColor="#FFFF9D" HorizontalOptions="End"/>
+                  </Grid>
+                </Grid>
+              </Grid>
+            </ViewCell>
+          </DataTemplate>
+        </ListView.ItemTemplate>
+      </ListView>
+    </Grid>
+
+
+    <Grid x:Name="ProfilePanel" Grid.Row="0" BackgroundColor="Yellow" >
+        
+    </Grid>
+
+    <Grid x:Name="ActivityPanel" Grid.Row="0" BackgroundColor="Blue">
+        
+    </Grid>
+
+    <Grid x:Name="NewsPanel" Grid.Row="0" BackgroundColor="Maroon" >
+        
+    </Grid>
+
+
+    <!--main menu-->
+    <StackLayout Grid.Row="1" Orientation="Horizontal" VerticalOptions="CenterAndExpand" HorizontalOptions="Fill"
+                 BackgroundColor="#E27A3F">
+      <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+        <Image x:Name="profile" Source="new.png" HeightRequest="75" WidthRequest="75" Margin="10"/>
+        <Image x:Name="home" Source="profile.png" HeightRequest="75" WidthRequest="75" Margin="10"/>
+        <Image x:Name="news" Source="profile.png" HeightRequest="75" WidthRequest="75" Margin="10"/>
+        <Image x:Name="activity" Source="profile.png" HeightRequest="75" WidthRequest="75" Margin="10"/>
+      </StackLayout>
+    </StackLayout>
+
+
+  </Grid>
+
+
+
+
+
+
+
+</ContentPage>
