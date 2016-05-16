@@ -56,6 +56,12 @@ namespace Cerkes_Haber.ViewModel
             }
         }
 
+        private bool isRuning;
+        public bool IsRuning
+        {
+            get { return isRuning; }
+            set { Set(() => IsRuning, ref isRuning, value); }
+        }
 
         //public EventViewModel(IMessenger messenger) : base(messenger)
         //{

@@ -3,9 +3,21 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Cerkes_Haber.View.MainPage" Title="Cerkes Haber">
 
-  <Page.Resources>
-
-  </Page.Resources>
+  <ContentPage.Resources>
+    <ResourceDictionary>
+      <Style x:Key="CustomLabelStyle" TargetType="Label">
+        <Setter Property="TextColor" Value="#FFFF9D"/>
+        <Setter Property="FontSize" Value="19"/>
+        <Setter Property="VerticalOptions" Value="Center"/>
+        <Setter Property="FontFamily" Value="Comic Sans MS"/>
+      </Style>
+      <Style x:Key="CustomLabelStyle2" TargetType="Label">
+        <Setter Property="TextColor" Value="White"/>
+        <Setter Property="FontSize" Value="16"/>
+        <Setter Property="VerticalOptions" Value="Center"/>
+      </Style>
+    </ResourceDictionary>
+  </ContentPage.Resources>
 
 
   <Grid x:Name="MainPanel" BackgroundColor="#EFC94C" VerticalOptions="Fill" HorizontalOptions="Fill">
@@ -14,6 +26,7 @@
       <RowDefinition Height="Auto"/>
     </Grid.RowDefinitions>
 
+    <!--events list pivot-->
     <Grid x:Name="HomePanel" Grid.Row="0" VerticalOptions="Fill" HorizontalOptions="Fill">
       <ListView  x:Name="EventsList" Grid.Row="0" VerticalOptions="Fill" HorizontalOptions="Fill"
                  ItemsSource="{Binding EventList}" BackgroundColor="Gray">
@@ -81,19 +94,77 @@
           </DataTemplate>
         </ListView.ItemTemplate>
       </ListView>
+
+
+      <ActivityIndicator IsRunning="{Binding IsRuning}" VerticalOptions="Center" HorizontalOptions="Center" WidthRequest="100" HeightRequest="100" Color="White"/>
+
     </Grid>
 
+    <!--profile pivot-->
+    <Grid x:Name="ProfilePanel" Grid.Row="0" BackgroundColor="#DF4949" IsVisible="False">
+      <ScrollView>
+        <Grid>
+          <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+          </Grid.RowDefinitions>
 
-    <Grid x:Name="ProfilePanel" Grid.Row="0" BackgroundColor="Yellow" >
-        
+          <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+              <ColumnDefinition Width="Auto"/>
+              <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <Image x:Name="profileImage" Margin="10" Source="http://scontent.cdninstagram.com/t51.2885-19/s150x150/12357747_1568698813350888_1281318636_a.jpg" Grid.Column="0" HeightRequest="100" WidthRequest="100" VerticalOptions="Center" HorizontalOptions="Center"/>
+
+            <Grid Grid.Column="1" Margin="10">
+              <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+              </Grid.RowDefinitions>
+
+              <Label x:Name="txtName" Text="Yavuz Selim" Grid.Row="0" VerticalOptions="Center" HorizontalOptions="Center" FontSize="25" TextColor="White"/>
+
+              <Label x:Name="txtSurname" Text="Ulucan" Grid.Row="1" VerticalOptions="Center" HorizontalOptions="Start" FontSize="25" TextColor="White"/>
+            </Grid>
+          </Grid>
+          <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+              <RowDefinition Height="Auto"/>
+              <RowDefinition Height="Auto"/>
+              <RowDefinition Height="Auto"/>
+              <RowDefinition Height="Auto"/>
+              <RowDefinition Height="Auto"/>
+              <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+              <ColumnDefinition Width="80"/>
+              <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Label Text="Köy: " Grid.Row="0" Grid.Column="0" HorizontalOptions="End" Style="{StaticResource CustomLabelStyle}"/>
+            <Label Text="Şehir: " Grid.Row="1" Grid.Column="0" HorizontalOptions="End" Style="{StaticResource CustomLabelStyle}"/>
+            <Label Text="Telefon: " Grid.Row="2" Grid.Column="0" HorizontalOptions="End" Style="{StaticResource CustomLabelStyle}"/>
+            <Label Text="Çerkes Boyu: " Grid.Row="3" Grid.Column="0" HorizontalOptions="End" Style="{StaticResource CustomLabelStyle}"/>
+            <Label Text="Adres: " Grid.Row="4" Grid.Column="0" HorizontalOptions="End" Style="{StaticResource CustomLabelStyle}"/>
+
+            <Label Text="Yeni Yapan" Grid.Row="0" Grid.Column="1" HorizontalOptions="Start" Style="{StaticResource CustomLabelStyle2}"/>
+            <Label Text="Sivas" Grid.Row="1" Grid.Column="1" HorizontalOptions="Start" Style="{StaticResource CustomLabelStyle2}"/>
+            <Label Text="0551 437 6543 " Grid.Row="2" Grid.Column="1" HorizontalOptions="Start" Style="{StaticResource CustomLabelStyle2}"/>
+            <Label Text="Abhaz" Grid.Row="3" Grid.Column="1" HorizontalOptions="Start" Style="{StaticResource CustomLabelStyle2}"/>
+            <Label Text="Oruçreis Mah. Asmaaltı sk. no:23 Kocasinan / Kayseri" Grid.Row="4" Grid.Column="1" HorizontalOptions="Start" LineBreakMode="WordWrap" Style="{StaticResource CustomLabelStyle2}"/>
+          </Grid>
+
+        </Grid>
+      </ScrollView>
     </Grid>
 
-    <Grid x:Name="ActivityPanel" Grid.Row="0" BackgroundColor="Blue">
-        
+    <Grid x:Name="ActivityPanel" Grid.Row="0" BackgroundColor="Blue" IsVisible="False">
+
     </Grid>
 
-    <Grid x:Name="NewsPanel" Grid.Row="0" BackgroundColor="Maroon" >
-        
+    <Grid x:Name="NewsPanel" Grid.Row="0" BackgroundColor="Maroon" IsVisible="False">
+
     </Grid>
 
 

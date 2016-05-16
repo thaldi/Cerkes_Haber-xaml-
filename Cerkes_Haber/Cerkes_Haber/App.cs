@@ -30,7 +30,7 @@ namespace Cerkes_Haber
         }
 
 
-        #region Locator
+        #region Locator for BindingContext
 
         private static Helper.ViewModelLocator locator;
 

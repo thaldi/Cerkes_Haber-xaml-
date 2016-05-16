@@ -16,6 +16,8 @@ namespace Cerkes_Haber.View
             BindingContext = App.Locator.Events;
             SetImageUri();
             SetMenuItemEvents();
+
+
         }
 
         //main menu image uri set
