@@ -123,6 +123,7 @@
     <Content Include="Assets\images\loginIcon.jpg" />
     <Content Include="Assets\images\new.png" />
     <Content Include="Assets\images\profile.png" />
+    <Content Include="Assets\images\setting.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />

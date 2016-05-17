@@ -106,6 +106,7 @@
     <Content Include="Assets\images\dugun.png" />
     <Content Include="Assets\images\join.png" />
     <Content Include="Assets\images\loginIcon.jpg" />
+    <Content Include="Assets\images\setting.png" />
     <Content Include="Assets\Logo.scale-240.png" />
     <Content Include="Assets\SmallLogo.scale-240.png" />
     <Content Include="Assets\SplashScreen.scale-240.png" />

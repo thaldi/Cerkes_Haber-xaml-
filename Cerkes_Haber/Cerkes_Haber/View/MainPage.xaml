@@ -35,13 +35,11 @@
             <ViewCell>
               <Grid Margin="5">
                 <Grid.ColumnDefinitions>
-                  <ColumnDefinition Width="30"/>
+                  <ColumnDefinition Width="Auto"/>
                   <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
 
-                <Grid Grid.Column="0" Margin="2">
-                  <Image Source="{Binding EventTypeFlag}" WidthRequest="100" HeightRequest="100"/>
-                </Grid>
+
 
                 <Grid Grid.Column="1" Margin="2" WidthRequest="300">
                   <Grid.RowDefinitions>
@@ -61,7 +59,7 @@
                     </Grid.ColumnDefinitions>
                     <Label Text="{Binding Title}" Grid.Row="0" Grid.Column="0" Margin="2" FontFamily="Segoe UI" FontSize="20" TextColor="#00A388"/>
                     <Label Text="{Binding Name}" Grid.Row="1" Margin="2" Grid.Column="0"/>
-                    <Image Grid.Column="1" HorizontalOptions="End" HeightRequest="40" WidthRequest="40">
+                    <!--<Image Grid.Column="1" HorizontalOptions="End" HeightRequest="40" WidthRequest="40">
                       <Image.Source>
                         <OnPlatform x:TypeArguments="ImageSource">
                           <OnPlatform.iOS>
@@ -75,7 +73,10 @@
                           </OnPlatform.WinPhone>
                         </OnPlatform>
                       </Image.Source>
-                    </Image>
+                    </Image>-->
+                    <Grid Grid.Column="1" Margin="2" HorizontalOptions="End">
+                      <Image Source="{Binding EventTypeFlag}" WidthRequest="35" HeightRequest="35"/>
+                    </Grid>
                   </Grid>
 
                   <Label Text="{Binding Place}" Grid.Row="1" Margin="2"/>
@@ -96,7 +97,7 @@
       </ListView>
 
 
-      <ActivityIndicator IsRunning="{Binding IsRuning}" VerticalOptions="Center" HorizontalOptions="Center" WidthRequest="100" HeightRequest="100" Color="White"/>
+      <ActivityIndicator IsVisible="False" IsRunning="{Binding IsRuning}" VerticalOptions="Center" HorizontalOptions="Center" WidthRequest="100" HeightRequest="100" Color="White"/>
 
     </Grid>
 
@@ -117,13 +118,13 @@
 
             <Image x:Name="profileImage" Margin="10" Source="http://scontent.cdninstagram.com/t51.2885-19/s150x150/12357747_1568698813350888_1281318636_a.jpg" Grid.Column="0" HeightRequest="100" WidthRequest="100" VerticalOptions="Center" HorizontalOptions="Center"/>
 
-            <Grid Grid.Column="1" Margin="10">
+            <Grid Grid.Column="1" Margin="10" HorizontalOptions="Fill">
               <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
               </Grid.RowDefinitions>
 
-              <Label x:Name="txtName" Text="Yavuz Selim" Grid.Row="0" VerticalOptions="Center" HorizontalOptions="Center" FontSize="25" TextColor="White" FontFamily="Comic Sans MS"/>
+              <Label x:Name="txtName" Text="Yavuz Selim" Grid.Row="0" VerticalOptions="Center" HorizontalOptions="Start" FontSize="25" TextColor="White" FontFamily="Comic Sans MS"/>
 
               <Label x:Name="txtSurname" Text="Ulucan" Grid.Row="1" VerticalOptions="Center" HorizontalOptions="Start" FontSize="25" TextColor="White" FontFamily="Comic Sans MS"/>
             </Grid>
@@ -157,6 +158,25 @@
 
         </Grid>
       </ScrollView>
+
+
+      <Image x:Name="btnEditProfile" Grid.Row="0" VerticalOptions="Start" HorizontalOptions="End" HeightRequest="40" WidthRequest="40" Margin="5">
+        <Image.Source>
+          <OnPlatform x:TypeArguments="ImageSource">
+            <OnPlatform.iOS>
+              <FileImageSource File="setting.png"/>
+            </OnPlatform.iOS>
+            <OnPlatform.Android>
+              <FileImageSource File="setting.png"/>
+            </OnPlatform.Android>
+            <OnPlatform.WinPhone>
+              <FileImageSource File="Assets/images/setting.png"/>
+            </OnPlatform.WinPhone>
+          </OnPlatform>
+        </Image.Source>
+      </Image>
+
+
     </Grid>
 
     <!--activity pivot-->
@@ -209,19 +229,20 @@
       </ListView>
     </Grid>
 
+    <!--add new event pivot-->
     <Grid x:Name="NewsPanel" Grid.Row="0" BackgroundColor="Maroon" IsVisible="False">
-        
+
     </Grid>
 
 
     <!--main menu-->
     <StackLayout Grid.Row="1" Orientation="Horizontal" VerticalOptions="CenterAndExpand" HorizontalOptions="Fill"
-                 BackgroundColor="#E27A3F">
-      <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
-        <Image x:Name="profile" Source="new.png" HeightRequest="75" WidthRequest="75" Margin="10"/>
-        <Image x:Name="home" Source="profile.png" HeightRequest="75" WidthRequest="75" Margin="10"/>
-        <Image x:Name="news" Source="profile.png" HeightRequest="75" WidthRequest="75" Margin="10"/>
-        <Image x:Name="activity" Source="profile.png" HeightRequest="75" WidthRequest="75" Margin="10"/>
+                 BackgroundColor="#E27A3F" HeightRequest="100">
+      <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" VerticalOptions="Start">
+        <Image x:Name="profile" Source="new.png" HeightRequest="50" WidthRequest="50" Margin="10"/>
+        <Image x:Name="home" Source="profile.png" HeightRequest="50" WidthRequest="50" Margin="10"/>
+        <Image x:Name="news" Source="profile.png" HeightRequest="50" WidthRequest="50" Margin="10"/>
+        <Image x:Name="activity" Source="profile.png" HeightRequest="50" WidthRequest="50" Margin="10"/>
       </StackLayout>
     </StackLayout>
 

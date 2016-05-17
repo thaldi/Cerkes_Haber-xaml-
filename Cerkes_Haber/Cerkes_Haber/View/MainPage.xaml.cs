@@ -16,10 +16,8 @@ namespace Cerkes_Haber.View
             BindingContext = App.Locator.Events;
             ActivityPanel.BindingContext = App.Locator.Activities;
 
-
             SetImageUri();
             SetMenuItemEvents();
-
 
         }
 
@@ -56,6 +54,12 @@ namespace Cerkes_Haber.View
             profile.GestureRecognizers.Add(new TapGestureRecognizer(this.profileClick));
             activity.GestureRecognizers.Add(new TapGestureRecognizer(this.activityClick));
             news.GestureRecognizers.Add(new TapGestureRecognizer(this.newsClick));
+            btnEditProfile.GestureRecognizers.Add(new TapGestureRecognizer(this.EditProfileClick));
+        }
+
+        private async void EditProfileClick(Xamarin.Forms.View arg1, object arg2)
+        {
+            await DisplayAlert("Notice", "Navigated to Edit Profile Page", "OK", "CANCEL");
         }
 
         private void profileClick(Xamarin.Forms.View arg1, object arg2)
@@ -81,6 +85,7 @@ namespace Cerkes_Haber.View
             SetAllCollapsed();
             HomePanel.IsVisible = true;
         }
+        //all pivot collapsed
         private void  SetAllCollapsed()
         {
             ProfilePanel.IsVisible = false;
