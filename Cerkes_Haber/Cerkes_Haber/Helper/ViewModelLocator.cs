@@ -17,7 +17,7 @@ namespace Cerkes_Haber.Helper
             ServiceLocator.SetLocatorProvider(() => SimpleIoc.Default);
 
             SimpleIoc.Default.Register<EventViewModel>();
-
+            SimpleIoc.Default.Register<ActivityViewModel>();
 
         }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance",
@@ -28,6 +28,14 @@ namespace Cerkes_Haber.Helper
             get
             {
                 return ServiceLocator.Current.GetInstance<EventViewModel>();
+            }
+        }
+
+        public ActivityViewModel Activities
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<ActivityViewModel>();
             }
         }
 

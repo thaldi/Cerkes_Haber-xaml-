@@ -6,7 +6,7 @@
   <ContentPage.Resources>
     <ResourceDictionary>
       <Style x:Key="CustomLabelStyle" TargetType="Label">
-        <Setter Property="TextColor" Value="#FFFF9D"/>
+        <Setter Property="TextColor" Value="Silver"/>
         <Setter Property="FontSize" Value="19"/>
         <Setter Property="VerticalOptions" Value="Center"/>
         <Setter Property="FontFamily" Value="Comic Sans MS"/>
@@ -123,9 +123,9 @@
                 <RowDefinition Height="Auto"/>
               </Grid.RowDefinitions>
 
-              <Label x:Name="txtName" Text="Yavuz Selim" Grid.Row="0" VerticalOptions="Center" HorizontalOptions="Center" FontSize="25" TextColor="White"/>
+              <Label x:Name="txtName" Text="Yavuz Selim" Grid.Row="0" VerticalOptions="Center" HorizontalOptions="Center" FontSize="25" TextColor="White" FontFamily="Comic Sans MS"/>
 
-              <Label x:Name="txtSurname" Text="Ulucan" Grid.Row="1" VerticalOptions="Center" HorizontalOptions="Start" FontSize="25" TextColor="White"/>
+              <Label x:Name="txtSurname" Text="Ulucan" Grid.Row="1" VerticalOptions="Center" HorizontalOptions="Start" FontSize="25" TextColor="White" FontFamily="Comic Sans MS"/>
             </Grid>
           </Grid>
           <Grid Grid.Row="1">
@@ -138,7 +138,7 @@
               <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-              <ColumnDefinition Width="80"/>
+              <ColumnDefinition Width="120"/>
               <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
@@ -159,12 +159,58 @@
       </ScrollView>
     </Grid>
 
-    <Grid x:Name="ActivityPanel" Grid.Row="0" BackgroundColor="Blue" IsVisible="False">
+    <!--activity pivot-->
+    <Grid x:Name="ActivityPanel" Grid.Row="0" BackgroundColor="#00A388" IsVisible="False">
+      <ListView x:Name="ActivityList" ItemsSource="{Binding ActivityList}" Margin="5">
+        <ListView.ItemTemplate>
+          <DataTemplate>
+            <ViewCell>
+              <StackLayout>
+                <Grid>
+                  <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                  </Grid.ColumnDefinitions>
+                  <Image HeightRequest="40" WidthRequest="40" Grid.Column="0">
+                    <Image.Source>
+                      <OnPlatform x:TypeArguments="ImageSource">
+                        <OnPlatform.iOS>
+                          <FileImageSource File="activityIcon.png"/>
+                        </OnPlatform.iOS>
+                        <OnPlatform.Android>
+                          <FileImageSource File="activityIcon.png"/>
+                        </OnPlatform.Android>
+                        <OnPlatform.WinPhone>
+                          <FileImageSource File="Assets/images/activityIcon.png"/>
+                        </OnPlatform.WinPhone>
+                      </OnPlatform>
+                    </Image.Source>
+                  </Image>
 
+                  <Grid Grid.Column="1">
+                    <Grid.RowDefinitions>
+                      <RowDefinition Height="Auto"/>
+                      <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <StackLayout Grid.Row="0" Orientation="Horizontal">
+                      <Label Text="{Binding EventName}" FontSize="17" FontAttributes="Italic" LineBreakMode="WordWrap" VerticalOptions="Center"/>
+                      <Label Text=" etkinliğine katılacaksınız." LineBreakMode="WordWrap" VerticalOptions="Center"/>
+                    </StackLayout>
+                    <Label Text="{Binding Date}" Grid.Row="1" TextColor="Silver" FontSize="10"/>
+                  </Grid>
+
+
+                </Grid>
+                <StackLayout HeightRequest="2" BackgroundColor="Gray"></StackLayout>
+              </StackLayout>
+            </ViewCell>
+          </DataTemplate>
+        </ListView.ItemTemplate>
+      </ListView>
     </Grid>
 
     <Grid x:Name="NewsPanel" Grid.Row="0" BackgroundColor="Maroon" IsVisible="False">
-
+        
     </Grid>
 
 

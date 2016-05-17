@@ -99,11 +99,13 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\images\activity.png" />
+    <Content Include="Assets\images\activityIcon.png" />
     <Content Include="Assets\images\belirsiz.png" />
     <Content Include="Assets\images\cenaze.png" />
     <Content Include="Assets\images\ceug.png" />
     <Content Include="Assets\images\dugun.png" />
     <Content Include="Assets\images\join.png" />
+    <Content Include="Assets\images\loginIcon.jpg" />
     <Content Include="Assets\Logo.scale-240.png" />
     <Content Include="Assets\SmallLogo.scale-240.png" />
     <Content Include="Assets\SplashScreen.scale-240.png" />

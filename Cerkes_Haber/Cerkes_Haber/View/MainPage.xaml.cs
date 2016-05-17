@@ -14,6 +14,9 @@ namespace Cerkes_Haber.View
         {
             InitializeComponent();
             BindingContext = App.Locator.Events;
+            ActivityPanel.BindingContext = App.Locator.Activities;
+
+
             SetImageUri();
             SetMenuItemEvents();
 
