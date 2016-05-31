@@ -60,9 +60,9 @@
       <Label Text="Password" Grid.Row="2" Style="{StaticResource CustomLabelStyle}"/>
       <Entry Grid.Row="3" IsPassword="True"/>
 
-      <StackLayout Grid.Row="5" Orientation="Horizontal" VerticalOptions="Center" HorizontalOptions="Center">
-        <Button x:Name="btnLogin" BackgroundColor="#00A388" Text="Login" WidthRequest="100"/>
-        <Button x:Name="btnRegister" BackgroundColor="#00A388" Text="Register" WidthRequest="100"/>
+      <StackLayout Grid.Row="4" Orientation="Horizontal" VerticalOptions="Center" HorizontalOptions="Center">
+        <Button x:Name="btnLogin" BackgroundColor="#00A388" Text="Login" WidthRequest="90" Margin="2" BorderColor="Transparent"/>
+        <Button x:Name="btnRegister" BackgroundColor="#00A388" Text="Register" WidthRequest="90" Margin="2" BorderColor="Transparent"/>
       </StackLayout>
     </Grid>
     

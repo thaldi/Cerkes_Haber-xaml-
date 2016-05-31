@@ -19,6 +19,7 @@ namespace Cerkes_Haber.ViewModel
             ActivityList.Add(new Model.Activity { EventName = "Sample Event 3", EventID = 231312, Date = DateTime.Now.ToUniversalTime().ToString() });
             ActivityList.Add(new Model.Activity { EventName = "Sample Event 4", EventID = 231312, Date = DateTime.Now.ToUniversalTime().ToString() });
             ActivityList.Add(new Model.Activity { EventName = "Sample Event 5", EventID = 231312, Date = DateTime.Now.ToUniversalTime().ToString() });
+            ActivityList.Add(new Model.Activity { EventName = "Sample Event 6", EventID = 231312, Date = DateTime.Now.ToUniversalTime().ToString() });
         }
 
 

@@ -14,6 +14,12 @@ namespace Cerkes_Haber.View
         {
             InitializeComponent();
             btnLogin.Clicked += BtnLogin_Clicked;
+            btnRegister.Clicked += BtnRegister_Clicked;
+        }
+
+        private async void BtnRegister_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushModalAsync(new View.RegisterPage());
         }
 
         private async void BtnLogin_Clicked(object sender, EventArgs e)

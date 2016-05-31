@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Cerkes_Haber.View.RegisterPage"
+             >
+
+  <ContentPage.Resources>
+    <ResourceDictionary>
+      <Style TargetType="Label" x:Key="CustomLabelStyle">
+        <Setter Property="TextColor" Value="White"/>
+        <Setter Property="Margin" Value="5,0,0,0"/>
+        <Setter Property="TextColor" Value="White"/>
+      </Style>
+    </ResourceDictionary>
+  </ContentPage.Resources>
+
+
+  <Grid BackgroundColor="#0092C7">
+    <TableView>
+      <TableView.Root>
+
+        <TableSection Title="Information">
+          <ViewCell>
+            <ViewCell.View>
+              <Grid Margin="5">
+                <Grid.RowDefinitions>
+                  <RowDefinition Height="Auto"/>
+                  <RowDefinition Height="Auto"/>
+                  <RowDefinition Height="Auto"/>
+                  <RowDefinition Height="Auto"/>
+                  <RowDefinition Height="Auto"/>
+                  <RowDefinition Height="Auto"/>
+                  <RowDefinition Height="Auto"/>
+                  <RowDefinition Height="Auto"/>
+                  <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Label Text="Name" Grid.Row="0" Style="{StaticResource CustomLabelStyle}"/>
+                <Label Text="Surname" Grid.Row="2" Style="{StaticResource CustomLabelStyle}"/>
+                <Label Text="Part of Adiga" Grid.Row="4" Style="{StaticResource CustomLabelStyle}"/>
+                <Label Text="Address" Grid.Row="6" Style="{StaticResource CustomLabelStyle}"/>
+                <Label Text="Phone" Grid.Row="8" Style="{StaticResource CustomLabelStyle}"/>
+                <Entry Grid.Row="1" Margin="10"/>
+                <Entry Grid.Row="3" Margin="10"/>
+                <Entry Grid.Row="5" Margin="10"/>
+                <!--required wrapping for address-->
+                <Editor Grid.Row="7" Margin="10"  HeightRequest="50"/>
+                <Entry Grid.Row="9" Margin="10"/>
+              </Grid>
+            </ViewCell.View>
+          </ViewCell>
+        </TableSection>
+
+        <TableSection Title="Place">
+          <ViewCell>
+            <ViewCell.View>
+              <Grid Margin="5">
+                <Grid.RowDefinitions>
+                  <RowDefinition Height="Auto"/>
+                  <RowDefinition Height="Auto"/>
+                  <RowDefinition Height="Auto"/>
+                  <RowDefinition Height="Auto"/>
+                  <RowDefinition Height="Auto"/>
+                  <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <Label Text="City" Grid.Row="0" Style="{StaticResource CustomLabelStyle}"/>
+                <Label Text="Village" Grid.Row="2" Style="{StaticResource CustomLabelStyle}"/>
+                <Label Text="Country" Grid.Row="4" Style="{StaticResource CustomLabelStyle}"/>
+
+                <Picker x:Name="cmbEventCities" Grid.Row="1" Margin="10"/>
+                <Entry x:Name="txtEventVillage" Grid.Row="3" Margin="10"/>
+                <Picker x:Name="cmbEventCountry" Grid.Row="5" Margin="10"/>
+              </Grid>
+            </ViewCell.View>
+          </ViewCell>
+        </TableSection>
+
+        <TableSection Title="Your Image">
+          <ViewCell>
+            <ViewCell.View>
+              <Grid Margin="5">
+
+                <Image x:Name="profileImage" VerticalOptions="Center" HorizontalOptions="Center" WidthRequest="100" HeightRequest="100">
+                  <Image.Source>
+                    <OnPlatform x:TypeArguments="ImageSource">
+                      <OnPlatform.iOS>
+                        <FileImageSource File="prpfileSample.png"/>
+                      </OnPlatform.iOS>
+                      <OnPlatform.Android>
+                        <FileImageSource File="prpfileSample.png"/>
+                      </OnPlatform.Android>
+                      <OnPlatform.WinPhone>
+                        <FileImageSource File="Assets/images/prpfileSample.png"/>
+                      </OnPlatform.WinPhone>
+                    </OnPlatform>
+                  </Image.Source>
+                </Image>
+
+              </Grid>
+            </ViewCell.View>
+          </ViewCell>
+        </TableSection>
+
+      </TableView.Root>
+    </TableView>
+  </Grid>
+
+
+
+</ContentPage>

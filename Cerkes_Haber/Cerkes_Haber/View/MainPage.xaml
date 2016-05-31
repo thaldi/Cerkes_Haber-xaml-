@@ -1,10 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Cerkes_Haber.View.MainPage" Title="Cerkes Haber">
+             x:Class="Cerkes_Haber.View.MainPage" Title="Cerkes Haber"
+             xmlns:converters="clr-namespace:Cerkes_Haber.Converter;assembly=Cerkes_Haber">
 
   <ContentPage.Resources>
     <ResourceDictionary>
+      <converters:DateTimeConverter x:Key="datetimeCon"/>
+           
       <Style x:Key="CustomLabelStyle" TargetType="Label">
         <Setter Property="TextColor" Value="Silver"/>
         <Setter Property="FontSize" Value="19"/>
@@ -29,7 +32,7 @@
     <!--events list pivot-->
     <Grid x:Name="HomePanel" Grid.Row="0" VerticalOptions="Fill" HorizontalOptions="Fill">
       <ListView  x:Name="EventsList" Grid.Row="0" VerticalOptions="Fill" HorizontalOptions="Fill"
-                 ItemsSource="{Binding EventList}" BackgroundColor="Gray">
+                 ItemsSource="{Binding EventList}" BackgroundColor="#009BA1">
         <ListView.ItemTemplate>
           <DataTemplate>
             <ViewCell>
@@ -57,7 +60,7 @@
                       <ColumnDefinition Width="Auto"/>
                       <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
-                    <Label Text="{Binding Title}" Grid.Row="0" Grid.Column="0" Margin="2" FontFamily="Segoe UI" FontSize="20" TextColor="#00A388"/>
+                    <Label Text="{Binding Title}" Grid.Row="0" Grid.Column="0" Margin="2" FontFamily="Segoe UI" FontSize="20" TextColor="#EFEFEF"/>
                     <Label Text="{Binding Name}" Grid.Row="1" Margin="2" Grid.Column="0"/>
                     <!--<Image Grid.Column="1" HorizontalOptions="End" HeightRequest="40" WidthRequest="40">
                       <Image.Source>
@@ -86,7 +89,7 @@
                       <ColumnDefinition Width="*"/>
                       <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
-                    <Label Text="{Binding Date}" Grid.Column="0" Margin="2" TextColor="#FFFF9D" HorizontalOptions="Start"/>
+                    <Label Text="{Binding Date,Converter={StaticResource datetimeCon}}" Grid.Column="0" Margin="2" TextColor="#FFFF9D" HorizontalOptions="Start"/>
                     <Label Text="{Binding CreatedDate}" Grid.Column="1" Margin="2" TextColor="#FFFF9D" HorizontalOptions="End"/>
                   </Grid>
                 </Grid>
@@ -230,10 +233,87 @@
     </Grid>
 
     <!--add new event pivot-->
-    <Grid x:Name="NewsPanel" Grid.Row="0" BackgroundColor="Maroon" IsVisible="False">
+    <Grid x:Name="NewsPanel" Grid.Row="0" BackgroundColor="#CF4A30" IsVisible="False">
+      <!--<ScrollView>-->
+      <TableView>
+        <TableView.Root>
+          <TableSection Title="Information">
+            <ViewCell>
+              <ViewCell.View>
+                <Grid Margin="5">
+                  <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                  </Grid.RowDefinitions>
 
+                  <Label Text="Title" Grid.Row="0" Margin="5,0,0,0"/>
+                  <Label Text="Decription" Grid.Row="2" Margin="5,0,0,0"/>
+                  <Entry Grid.Row="1" Margin="10"/>
+                  <Editor Grid.Row="3" HeightRequest="100" Margin="10"/>
+                </Grid>
+              </ViewCell.View>
+            </ViewCell>
+          </TableSection>
+          <TableSection Title="Detail">
+            <ViewCell>
+              <ViewCell.View>
+                <Grid Margin="5">
+                  <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                  </Grid.RowDefinitions>
+
+                  <Label Text="City" Grid.Row="0" Margin="5,0,0,0"/>
+                  <Label Text="Village" Grid.Row="2" Margin="5,0,0,0"/>
+                  <Label Text="Country" Grid.Row="4"/>
+
+                  <Picker x:Name="cmbEventCities" Grid.Row="1" Margin="10"/><!--bindable picker eklenecek-->
+                  <Entry x:Name="txtEventVillage" Grid.Row="3" Margin="10"/>
+                  <Picker x:Name="cmbEventCountry" Grid.Row="5" Margin="10"/>
+                </Grid>
+              </ViewCell.View>
+            </ViewCell>
+          </TableSection>
+          <TableSection Title="Date-Time">
+            <ViewCell>
+              <ViewCell.View>
+                <Grid Margin="5">
+                  <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                  </Grid.RowDefinitions>
+
+                  <Label Text="Date" Grid.Row="0" Margin="5,0,0,0"/>
+                  <Label Text="Time" Grid.Row="2" Margin="5,0,0,0"/>
+
+                  <DatePicker x:Name="txtEventDate" Grid.Row="1" Margin="10"/>
+                  <TimePicker x:Name="txtEventTime" Grid.Row="3" Margin="10"/>
+                </Grid>
+              </ViewCell.View>
+            </ViewCell>
+          </TableSection>
+          <TableSection Title="Done">
+            <ViewCell>
+              <ViewCell.View>
+                <Grid Margin="5" VerticalOptions="Fill" HorizontalOptions="Fill">
+                  <Label Text="is this event over?" HorizontalOptions="Start" Margin="5,0,0,0"/>
+                  <Button x:Name="btnAddEvent" Text="Done" BackgroundColor="#FFFF9D" Margin="0,0,5,0" HorizontalOptions="End" WidthRequest="75" TextColor="Black"/>
+                </Grid>
+              </ViewCell.View>
+            </ViewCell>
+          </TableSection>
+        </TableView.Root>
+      </TableView>
+      <!--</ScrollView>-->
     </Grid>
-
 
     <!--main menu-->
     <StackLayout Grid.Row="1" Orientation="Horizontal" VerticalOptions="CenterAndExpand" HorizontalOptions="Fill"

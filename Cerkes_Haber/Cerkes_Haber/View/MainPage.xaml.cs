@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 using Xamarin.Forms;
+using Cerkes_Haber.Enum;
 
 namespace Cerkes_Haber.View
 {
@@ -16,9 +17,19 @@ namespace Cerkes_Haber.View
             BindingContext = App.Locator.Events;
             ActivityPanel.BindingContext = App.Locator.Activities;
 
-            SetImageUri();
+            SetSelectedPivotImage(PivotEnum.Main);
+
             SetMenuItemEvents();
 
+            SetLists();
+
+            EventsList.ItemSelected += EventsList_ItemSelected;
+
+        }
+
+        private void EventsList_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            Navigation.PushModalAsync(new View.EventDetailPage(), true);
         }
 
         //main menu image uri set
@@ -66,33 +77,83 @@ namespace Cerkes_Haber.View
         {
             SetAllCollapsed();
             ProfilePanel.IsVisible = true;
+            SetSelectedPivotImage(PivotEnum.Profile);
         }
 
         private void activityClick(Xamarin.Forms.View arg1, object arg2)
         {
+            SetSelectedPivotImage(PivotEnum.Activity);
             SetAllCollapsed();
             ActivityPanel.IsVisible = true;
         }
 
         private void newsClick(Xamarin.Forms.View arg1, object arg2)
         {
+            SetSelectedPivotImage(PivotEnum.New);
             SetAllCollapsed();
             NewsPanel.IsVisible = true;
         }
 
         private void homeClick(Xamarin.Forms.View arg1, object arg2)
         {
+            SetSelectedPivotImage(PivotEnum.Main);
             SetAllCollapsed();
             HomePanel.IsVisible = true;
         }
         //all pivot collapsed
-        private void  SetAllCollapsed()
+        private void SetAllCollapsed()
         {
             ProfilePanel.IsVisible = false;
             HomePanel.IsVisible = false;
             ActivityPanel.IsVisible = false;
             NewsPanel.IsVisible = false;
         }
+
+
+        private void SetSelectedPivotImage(PivotEnum pivot)
+        {
+            SetImageUri();
+            switch (pivot)
+            {
+                case PivotEnum.Main:
+                    home.Source = Device.OnPlatform(
+                    Android: ImageSource.FromResource("home2.png"),
+                    iOS: ImageSource.FromResource("home2.png"),
+                    WinPhone: ImageSource.FromFile("Assets/images/home2.png"));
+                    break;
+                case PivotEnum.Profile:
+                    profile.Source = Device.OnPlatform(
+                    Android: ImageSource.FromResource("profile2.png"),
+                    iOS: ImageSource.FromResource("profile2.png"),
+                    WinPhone: ImageSource.FromFile("Assets/images/profile2.png"));
+                    break;
+                case PivotEnum.New:
+                    news.Source = Device.OnPlatform(
+                    Android: ImageSource.FromResource("new2.png"),
+                    iOS: ImageSource.FromResource("new2.png"),
+                    WinPhone: ImageSource.FromFile("Assets/images/new2.png"));
+                    break;
+                case PivotEnum.Activity:
+                    activity.Source = Device.OnPlatform(
+                    Android: ImageSource.FromResource("activity2.png"),
+                    iOS: ImageSource.FromResource("activity2.png"),
+                    WinPhone: ImageSource.FromFile("Assets/images/activity2.png"));
+                    break;
+            }
+        }
+
+        //pickerları doldurur
+        private void SetLists()
+        {
+            foreach (var item in Helper.ListHelper.CityList)
+                cmbEventCities.Items.Add(item);
+            foreach (var item in Helper.ListHelper.CountryList)
+                cmbEventCountry.Items.Add(item);
+            cmbEventCountry.SelectedIndex = 0;
+            cmbEventCities.SelectedIndex = 0;
+        }
+
+
 
     }
 }

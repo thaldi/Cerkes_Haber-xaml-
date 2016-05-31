@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:XLabs.Forms.Controls;assembly=XLabs.Forms"
+             x:Class="Cerkes_Haber.View.EventDetailPage">
+
+
+  <ContentPage.Resources>
+    <ResourceDictionary>
+      <Style x:Key="CustomLabelStyle" TargetType="Label">
+        <Setter Property="TextColor" Value="White"/>
+        <Setter Property="FontFamily" Value="Segoe UI Light"/>
+      </Style>
+    </ResourceDictionary>
+  </ContentPage.Resources>
+
+
+
+  <Grid VerticalOptions="Fill" HorizontalOptions="Fill" BackgroundColor="#67CC8E">
+    <Grid.RowDefinitions>
+      <RowDefinition Height="200"/>
+      <RowDefinition Height="Auto"/>
+    </Grid.RowDefinitions>
+
+    <Grid Grid.Row="0" VerticalOptions="Fill" HorizontalOptions="Fill" BackgroundColor="#289976">
+      <Image Source="https://pixabay.com/static/uploads/photo/2016/01/20/21/56/background-1152459_960_720.jpg" WidthRequest="100"/>
+
+      <BoxView VerticalOptions="End" HorizontalOptions="Fill" Color="#B2000000" HeightRequest="50"/>
+
+      <Label Text="05/05/2016" VerticalOptions="End" HorizontalOptions="Start" Margin="5,15,5,5" Style="{StaticResource CustomLabelStyle}"/>
+      <Label Text="Yeniyapan Köyü" VerticalOptions="End" HorizontalOptions="End" Margin="5,15,5,5" Style="{StaticResource CustomLabelStyle}"/>
+
+    </Grid>
+
+    <TableView Grid.Row="1">
+      <TableView.Root>
+        <TableSection Title="Information">
+          <ViewCell>
+            <ViewCell.View>
+              <Grid Margin="5">
+                <Label HorizontalOptions="Start" WidthRequest="400" VerticalOptions="Center" Text="Lorem Ipsum, dizgi ve baskı endüstrisinde kullanılan mıgır metinlerdir. Lorem Ipsum, adı bilinmeyen bir matbaacının bir hurufat numune kitabı oluşturmak üzere bir yazı galerisini alarak karıştırdığı 1500'lerden beri endüstri standardı sahte metinler olarak kullanılmıştır. Beşyüz yıl boyunca varlığını sürdürmekle kalmamış, aynı zamanda pek değişmeden elektronik dizgiye de sıçramıştır. 1960'larda Lorem Ipsum pasajları da içeren Letraset yapraklarının yayınlanması ile ve yakın zamanda Aldus PageMaker gibi Lorem Ipsum sürümleri içeren masaüstü yayıncılık yazılımları ile popüler olmuştur." LineBreakMode="WordWrap" Margin="5,0,0,0"/>
+              </Grid>
+            </ViewCell.View>
+          </ViewCell>
+        </TableSection>
+        <TableSection Title="Address">
+          <ViewCell>
+            <ViewCell.View>
+              <Grid Margin="5">          
+                <Label Text="Yeni yapan köyü Sivas/Şarkışla" LineBreakMode="WordWrap" Margin="5"/>
+              </Grid>
+            </ViewCell.View>
+          </ViewCell>
+        </TableSection>
+      </TableView.Root>
+    </TableView>
+
+
+    <!--joiner counter-->
+    <StackLayout VerticalOptions="Start" HorizontalOptions="End" Margin="10">
+
+      <Image x:Name="btnJoinEvent" HeightRequest="40" WidthRequest="40"
+                            Source="http://icons.iconarchive.com/icons/iconsmind/outline/96/Add-User-icon.png"
+                            />
+
+      <Label x:Name="txtCounter" Text="14" TextColor="#FFE877" VerticalOptions="Center" HorizontalOptions="Center"/>
+
+    </StackLayout>
+
+
+
+
+  </Grid>
+
+
+
+</ContentPage>

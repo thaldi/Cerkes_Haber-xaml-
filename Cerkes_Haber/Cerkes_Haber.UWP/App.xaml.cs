@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GalaSoft.MvvmLight.Views;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -7,6 +8,7 @@ using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI.Core;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -67,6 +69,9 @@ namespace Cerkes_Haber.UWP
 
                 // Place the frame in the current Window
                 Window.Current.Content = rootFrame;
+
+              
+
             }
 
             if (rootFrame.Content == null)
@@ -79,6 +84,7 @@ namespace Cerkes_Haber.UWP
             // Ensure the current window is active
             Window.Current.Activate();
         }
+
 
         /// <summary>
         /// Invoked when Navigation to a certain page fails

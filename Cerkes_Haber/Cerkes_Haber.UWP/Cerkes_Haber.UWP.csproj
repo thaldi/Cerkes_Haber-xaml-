@@ -113,16 +113,21 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\images\activity.png" />
+    <Content Include="Assets\images\activity2.png" />
     <Content Include="Assets\images\activityIcon.png" />
     <Content Include="Assets\images\belirsiz.png" />
     <Content Include="Assets\images\cenaze.png" />
     <Content Include="Assets\images\ceug.png" />
     <Content Include="Assets\images\dugun.png" />
     <Content Include="Assets\images\home.png" />
+    <Content Include="Assets\images\home2.png" />
     <Content Include="Assets\images\join.png" />
     <Content Include="Assets\images\loginIcon.jpg" />
     <Content Include="Assets\images\new.png" />
+    <Content Include="Assets\images\new2.png" />
     <Content Include="Assets\images\profile.png" />
+    <Content Include="Assets\images\profile2.png" />
+    <Content Include="Assets\images\prpfileSample.png" />
     <Content Include="Assets\images\setting.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />

@@ -99,13 +99,18 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\images\activity.png" />
+    <Content Include="Assets\images\activity2.png" />
     <Content Include="Assets\images\activityIcon.png" />
     <Content Include="Assets\images\belirsiz.png" />
     <Content Include="Assets\images\cenaze.png" />
     <Content Include="Assets\images\ceug.png" />
     <Content Include="Assets\images\dugun.png" />
+    <Content Include="Assets\images\home2.png" />
     <Content Include="Assets\images\join.png" />
     <Content Include="Assets\images\loginIcon.jpg" />
+    <Content Include="Assets\images\new2.png" />
+    <Content Include="Assets\images\profile2.png" />
+    <Content Include="Assets\images\prpfileSample.png" />
     <Content Include="Assets\images\setting.png" />
     <Content Include="Assets\Logo.scale-240.png" />
     <Content Include="Assets\SmallLogo.scale-240.png" />
@@ -133,6 +138,10 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="ExifLib, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\ExifLib.PCL.1.0.1\lib\portable-net45+sl50+win+WindowsPhoneApp81+wp80+Xamarin.iOS10+MonoAndroid10+MonoTouch10\ExifLib.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="GalaSoft.MvvmLight, Version=5.3.0.19026, Culture=neutral, PublicKeyToken=e7570ab207bcb616, processorArchitecture=MSIL">
       <HintPath>..\..\packages\MvvmLightLibs.5.3.0.0\lib\wpa81\GalaSoft.MvvmLight.dll</HintPath>
       <Private>True</Private>
@@ -169,8 +178,13 @@
       <HintPath>..\..\packages\Xamarin.Forms.2.2.0.31\lib\wpa81\Xamarin.Forms.Xaml.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="XLabs.Core, Version=2.0.5782.12218, Culture=neutral, PublicKeyToken=d65109b36e5040e4, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\XLabs.Core.2.0.5782\lib\portable-net45+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1\XLabs.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '12.0' ">

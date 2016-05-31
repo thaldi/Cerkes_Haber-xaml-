@@ -9,8 +9,7 @@ namespace Cerkes_Haber.Helper.Database
 {
     public interface DBHelper
     {
-      
-
+        SQLite.SQLiteConnection Connection();
 
     }
 }

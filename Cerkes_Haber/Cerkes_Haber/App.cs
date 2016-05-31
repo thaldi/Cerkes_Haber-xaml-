@@ -11,8 +11,9 @@ namespace Cerkes_Haber
     {
         public App()
         {
-            MainPage = new NavigationPage(new View.LoginPage());
+            MainPage = new View.MainPage();
         }
+
 
         protected override void OnStart()
         {
