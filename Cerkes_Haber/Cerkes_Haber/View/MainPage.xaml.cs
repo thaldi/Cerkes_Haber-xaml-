@@ -6,11 +6,15 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Cerkes_Haber.Enum;
+using Cerkes_Haber.Helper.Service;
 
 namespace Cerkes_Haber.View
 {
     public partial class MainPage : ContentPage
     {
+        ServiceHelper sHelper = new ServiceHelper();
+
+
         public MainPage()
         {
             InitializeComponent();
@@ -23,9 +27,10 @@ namespace Cerkes_Haber.View
 
             SetLists();
 
-            EventsList.ItemSelected += EventsList_ItemSelected;
-
+            EventsList.ItemSelected += EventsList_ItemSelected;               
         }
+
+     
 
         private void EventsList_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
@@ -59,13 +64,13 @@ namespace Cerkes_Haber.View
 
 
         //main menu image events
-        private void SetMenuItemEvents()
+        private async void SetMenuItemEvents()
         {
             home.GestureRecognizers.Add(new TapGestureRecognizer(this.homeClick));
             profile.GestureRecognizers.Add(new TapGestureRecognizer(this.profileClick));
             activity.GestureRecognizers.Add(new TapGestureRecognizer(this.activityClick));
             news.GestureRecognizers.Add(new TapGestureRecognizer(this.newsClick));
-            btnEditProfile.GestureRecognizers.Add(new TapGestureRecognizer(this.EditProfileClick));
+            btnEditProfile.GestureRecognizers.Add(new TapGestureRecognizer(this.EditProfileClick));          
         }
 
         private async void EditProfileClick(Xamarin.Forms.View arg1, object arg2)
